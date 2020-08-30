@@ -61,7 +61,7 @@
         live collaboration. No email attachments required!</p>
         <button class="btn-secondary">See how Fylo works <img src="images/icon-arrow.svg" alt=""></button>
 
-        <div class="testimonial">
+        <div class="testimonial" id="testimonial">
           <p>Fylo has improved our team productivity by an order of magnitude. Since
           making the switch our team has become a well-oiled collaboration machine.</p>
           <div class="profile">
@@ -126,18 +126,21 @@
     </div>
   </footer>
 
+<script>
+  const testimonial = document.querySelector('#testimonial');
+  const container = document.querySelector('.about');
 
+  window.addEventListener('scroll', handleSlide);
 
+  function handleSlide(){
+    const slideInAt = (window.scrollY + window.innerHeight - container.offsetTop) - testimonial.offsetHeight / 1.5;
 
+    const isHalfShown = slideInAt > testimonial.offsetTop;
 
-
-
-
-
-
-
-
-
-
+    if(isHalfShown){
+      testimonial.classList.add('active');
+    }
+  }
+</script>
 </body>
 </html>
